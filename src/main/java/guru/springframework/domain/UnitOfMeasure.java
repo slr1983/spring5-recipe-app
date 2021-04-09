@@ -29,6 +29,16 @@ public class UnitOfMeasure {
 	public void setUnitOfMeasure(String unitOfMeasure) {
 		this.description = unitOfMeasure;
 	}
+	
+	
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
 	public UnitOfMeasure() {
 	}

@@ -45,132 +45,167 @@ public class LoadData implements ApplicationListener<ContextRefreshedEvent> {
 
 	public void loadDataIntoRecipe() {
 
-		ArrayList<Recipe> recipesList = new ArrayList<Recipe>();
+		try {
 
-		Recipe spicyGrilledChickenTacos = new Recipe();
-		Notes spicyGrilledChickenTacosNotes = new Notes();
-		Ingredient ingredient1 = new Ingredient();
-		Ingredient ingredient2 = new Ingredient();
-		Ingredient ingredient3 = new Ingredient();
+			ArrayList<Recipe> recipesList = new ArrayList<Recipe>();
 
-		spicyGrilledChickenTacos.setCookTime(15);
-		spicyGrilledChickenTacos.setDescription("Spicy Grilled Chicken Tacos");
-		spicyGrilledChickenTacos.setDifficulty(Difficulty.MODERATE);
-		spicyGrilledChickenTacos
-				.setDirections("Spicy grilled chicken tacos! Quick marinade, then grill. Ready in about 30 minutes. "
-						+ "Great for a quick weeknight dinner, backyard cookouts, and tailgate parties.\r\n");
-		spicyGrilledChickenTacosNotes.setRecipe(spicyGrilledChickenTacos);
-		spicyGrilledChickenTacosNotes.setRecipeNotes(
-				"First, I marinate the chicken briefly in a spicy paste of ancho chile powder, oregano, cumin, and sweet orange juice while the grill is heating. You can also use this time to prepare the taco toppings.\r\n"
-						+ "\r\n"
-						+ "Grill the chicken, then let it rest while you warm the tortillas. Now you are ready to assemble the tacos and dig in. The whole meal comes together in about 30 minutes!");
-		spicyGrilledChickenTacos.setNotes(spicyGrilledChickenTacosNotes);
+			Recipe spicyGrilledChickenTacos = new Recipe();
+			Notes spicyGrilledChickenTacosNotes = new Notes();
+			Ingredient ingredient1 = new Ingredient();
+			Ingredient ingredient2 = new Ingredient();
+			Ingredient ingredient3 = new Ingredient();
 
-		// spicyGrilledChickenTacos.setImage();
+			spicyGrilledChickenTacos.setCookTime(15);
+			spicyGrilledChickenTacos.setDescription("Spicy Grilled Chicken Tacos");
+			spicyGrilledChickenTacos.setDifficulty(Difficulty.MODERATE);
+			spicyGrilledChickenTacos.setDirections(
+					"Spicy grilled chicken tacos! Quick marinade, then grill. Ready in about 30 minutes. "
+							+ "Great for a quick weeknight dinner, backyard cookouts, and tailgate parties.\r\n");
+			spicyGrilledChickenTacosNotes.setRecipe(spicyGrilledChickenTacos);
+			spicyGrilledChickenTacosNotes.setRecipeNotes(
+					"First, I marinate the chicken briefly in a spicy paste of ancho chile powder, oregano, cumin, and sweet orange juice while the grill is heating. You can also use this time to prepare the taco toppings.\r\n"
+							+ "\r\n"
+							+ "Grill the chicken, then let it rest while you warm the tortillas. Now you are ready to assemble the tacos and dig in. The whole meal comes together in about 30 minutes!");
+			spicyGrilledChickenTacos.setNotes(spicyGrilledChickenTacosNotes);
 
-		spicyGrilledChickenTacos.setPrepTime(20);
-		spicyGrilledChickenTacos.setServings(4);
-		spicyGrilledChickenTacos.setSource("simplyrecipes");
-		spicyGrilledChickenTacos.setUrl("https://www.simplyrecipes.com/recipes/spicy_grilled_chicken_tacos/");
+			// spicyGrilledChickenTacos.setImage();
 
-		ingredient1.setAmount(new BigDecimal("2"));
-		ingredient1.setDescription("ancho chili powder");
-		ingredient1.setUnitOfMeasure(unitOfMeasureRepository.findByDescription("Tablespoon").get());
-		ingredient1.setRecipe(spicyGrilledChickenTacos);
+			spicyGrilledChickenTacos.setPrepTime(20);
+			spicyGrilledChickenTacos.setServings(4);
+			spicyGrilledChickenTacos.setSource("simplyrecipes");
+			spicyGrilledChickenTacos.setUrl("https://www.simplyrecipes.com/recipes/spicy_grilled_chicken_tacos/");
 
-		ingredient2.setAmount(new BigDecimal("1"));
-		ingredient2.setDescription("dried oregano");
-		ingredient2.setUnitOfMeasure(unitOfMeasureRepository.findByDescription("Teaspoon").get());
-		ingredient2.setRecipe(spicyGrilledChickenTacos);
+			ingredient1.setAmount(new BigDecimal("2"));
+			ingredient1.setDescription("ancho chili powder");
+			ingredient1.setUnitOfMeasure(unitOfMeasureRepository.findByDescription("Tablespoon").get());
+			ingredient1.setRecipe(spicyGrilledChickenTacos);
 
-		ingredient3.setAmount(new BigDecimal("1"));
-		ingredient3.setDescription("dried cumin");
-		ingredient3.setUnitOfMeasure(unitOfMeasureRepository.findByDescription("Teaspoon").get());
-		ingredient3.setRecipe(spicyGrilledChickenTacos);
+			ingredient2.setAmount(new BigDecimal("1"));
+			ingredient2.setDescription("dried oregano");
+			ingredient2.setUnitOfMeasure(unitOfMeasureRepository.findByDescription("Teaspoon").get());
+			ingredient2.setRecipe(spicyGrilledChickenTacos);
 
-		spicyGrilledChickenTacos.getIngredients().add(ingredient1);
-		spicyGrilledChickenTacos.getIngredients().add(ingredient2);
-		spicyGrilledChickenTacos.getIngredients().add(ingredient3);
+			ingredient3.setAmount(new BigDecimal("1"));
+			ingredient3.setDescription("dried cumin");
+			ingredient3.setUnitOfMeasure(unitOfMeasureRepository.findByDescription("Teaspoon").get());
+			ingredient3.setRecipe(spicyGrilledChickenTacos);
 
-		spicyGrilledChickenTacos.getCategories().add(categoryRepository.findByDescription("American").get());
-		spicyGrilledChickenTacos.getCategories().add(categoryRepository.findByDescription("Mexican").get());
+			spicyGrilledChickenTacos.getIngredients().add(ingredient1);
+			spicyGrilledChickenTacos.getIngredients().add(ingredient2);
+			spicyGrilledChickenTacos.getIngredients().add(ingredient3);
 
-		recipesList.add(spicyGrilledChickenTacos);
+			spicyGrilledChickenTacos.getCategories().add(categoryRepository.findByDescription("American").get());
+			spicyGrilledChickenTacos.getCategories().add(categoryRepository.findByDescription("Mexican").get());
 
-		Recipe perfectGuacamole = new Recipe();
-		Notes perfectGuacamolesNotes = new Notes();
-		Ingredient ingredient4 = new Ingredient();
-		Ingredient ingredient5 = new Ingredient();
-		Ingredient ingredient6 = new Ingredient();
+			recipesList.add(spicyGrilledChickenTacos);
 
-		perfectGuacamole.setCookTime(20);
-		perfectGuacamole.setDescription("How to Make Perfect Guacamole Recipe");
-		perfectGuacamole.setDifficulty(Difficulty.HARD);
-		perfectGuacamole.setDirections(
-				"Be careful handling chiles if using. Wash your hands thoroughly after handling and do not touch"
-						+ " your eyes or the area near your eyes with your hands for several hours.");
-		perfectGuacamolesNotes.setRecipe(perfectGuacamole);
-		perfectGuacamolesNotes.setRecipeNotes("Cut the avocado, remove flesh: Cut the avocados in half. Remove the pit."
-				+ " Score the inside of the avocado with a blunt knife and scoop out the flesh with a spoon. (See How to Cut and Peel an Avocado.) Place in a bowl."
-				+ "Mash with a fork: Using a fork, roughly mash the avocado. (Don't overdo it! The guacamole should be a little chunky.)");
-		perfectGuacamole.setNotes(perfectGuacamolesNotes);
+			Recipe perfectGuacamole = new Recipe();
+			Notes perfectGuacamolesNotes = new Notes();
+			Ingredient ingredient4 = new Ingredient();
+			Ingredient ingredient5 = new Ingredient();
+			Ingredient ingredient6 = new Ingredient();
 
-		// perfectGuacamole.setImage();
+			perfectGuacamole.setCookTime(20);
+			perfectGuacamole.setDescription("How to Make Perfect Guacamole Recipe");
+			perfectGuacamole.setDifficulty(Difficulty.HARD);
+			perfectGuacamole.setDirections(
+					"Be careful handling chiles if using. Wash your hands thoroughly after handling and do not touch"
+							+ " your eyes or the area near your eyes with your hands for several hours.");
+			perfectGuacamolesNotes.setRecipe(perfectGuacamole);
+			perfectGuacamolesNotes
+					.setRecipeNotes("Cut the avocado, remove flesh: Cut the avocados in half. Remove the pit."
+							+ " Score the inside of the avocado with a blunt knife and scoop out the flesh with a spoon. (See How to Cut and Peel an Avocado.) Place in a bowl."
+							+ "Mash with a fork: Using a fork, roughly mash the avocado. (Don't overdo it! The guacamole should be a little chunky.)");
+			perfectGuacamole.setNotes(perfectGuacamolesNotes);
 
-		perfectGuacamole.setPrepTime(10);
-		perfectGuacamole.setServings(2);
-		perfectGuacamole.setSource("simplyrecipes");
-		perfectGuacamole.setUrl("https://www.simplyrecipes.com/recipes/perfect_guacamole/");
+			// perfectGuacamole.setImage();
 
-		ingredient4.setAmount(new BigDecimal("1"));
-		ingredient4.setDescription("fresh lime juice or lemon juice");
-		ingredient4.setUnitOfMeasure(unitOfMeasureRepository.findByDescription("Tablespoon").get());
-		ingredient4.setRecipe(perfectGuacamole);
+			perfectGuacamole.setPrepTime(10);
+			perfectGuacamole.setServings(2);
+			perfectGuacamole.setSource("simplyrecipes");
+			perfectGuacamole.setUrl("https://www.simplyrecipes.com/recipes/perfect_guacamole/");
 
-		ingredient5.setAmount(new BigDecimal("2"));
-		ingredient5.setDescription("minced red onion or thinly sliced green onion");
-		ingredient5.setUnitOfMeasure(unitOfMeasureRepository.findByDescription("Tablespoon").get());
-		ingredient5.setRecipe(perfectGuacamole);
+			ingredient4.setAmount(new BigDecimal("1"));
+			ingredient4.setDescription("fresh lime juice or lemon juice");
+			ingredient4.setUnitOfMeasure(unitOfMeasureRepository.findByDescription("Tablespoon").get());
+			ingredient4.setRecipe(perfectGuacamole);
 
-		ingredient6.setAmount(new BigDecimal("1"));
-		ingredient6.setDescription("freshly grated black pepper");
-		ingredient6.setUnitOfMeasure(unitOfMeasureRepository.findByDescription("Dash").get());
-		ingredient6.setRecipe(perfectGuacamole);
+			ingredient5.setAmount(new BigDecimal("2"));
+			ingredient5.setDescription("minced red onion or thinly sliced green onion");
+			ingredient5.setUnitOfMeasure(unitOfMeasureRepository.findByDescription("Tablespoon").get());
+			ingredient5.setRecipe(perfectGuacamole);
 
-		perfectGuacamole.getIngredients().add(ingredient4);
-		perfectGuacamole.getIngredients().add(ingredient5);
-		perfectGuacamole.getIngredients().add(ingredient6);
+			ingredient6.setAmount(new BigDecimal("1"));
+			ingredient6.setDescription("freshly grated black pepper");
+			ingredient6.setUnitOfMeasure(unitOfMeasureRepository.findByDescription("Dash").get());
+			ingredient6.setRecipe(perfectGuacamole);
 
-		perfectGuacamole.getCategories().add(categoryRepository.findByDescription("American").get());
-		perfectGuacamole.getCategories().add(categoryRepository.findByDescription("Italian").get());
+			perfectGuacamole.getIngredients().add(ingredient4);
+			perfectGuacamole.getIngredients().add(ingredient5);
+			perfectGuacamole.getIngredients().add(ingredient6);
 
-		recipesList.add(perfectGuacamole);
-		
-		recipesList.add(spicyGrilledChickenTacos.getRecipeObjectClone());
-		recipesList.add(perfectGuacamole.getRecipeObjectClone());
-		recipesList.add(spicyGrilledChickenTacos.getRecipeObjectClone());
-		recipesList.add(spicyGrilledChickenTacos.getRecipeObjectClone());
-		recipesList.add(perfectGuacamole.getRecipeObjectClone());
-		recipesList.add(perfectGuacamole.getRecipeObjectClone());
-		recipesList.add(spicyGrilledChickenTacos.getRecipeObjectClone());
-		recipesList.add(spicyGrilledChickenTacos.getRecipeObjectClone());
-		recipesList.add(perfectGuacamole.getRecipeObjectClone());
-		recipesList.add(spicyGrilledChickenTacos.getRecipeObjectClone());
-		recipesList.add(perfectGuacamole.getRecipeObjectClone());
-		recipesList.add(perfectGuacamole.getRecipeObjectClone());
-		recipesList.add(perfectGuacamole.getRecipeObjectClone());
-		recipesList.add(spicyGrilledChickenTacos.getRecipeObjectClone());
-		recipesList.add(spicyGrilledChickenTacos.getRecipeObjectClone());
-		recipesList.add(perfectGuacamole.getRecipeObjectClone());
-		recipesList.add(spicyGrilledChickenTacos.getRecipeObjectClone());
-		recipesList.add(spicyGrilledChickenTacos.getRecipeObjectClone());
-		recipesList.add(perfectGuacamole.getRecipeObjectClone());
-		recipesList.add(perfectGuacamole.getRecipeObjectClone());
-		
+			perfectGuacamole.getCategories().add(categoryRepository.findByDescription("American").get());
+			perfectGuacamole.getCategories().add(categoryRepository.findByDescription("Italian").get());
 
-		recipeRepository.saveAll(recipesList);
+			recipesList.add(perfectGuacamole);
 
-		System.out.println("Saved Recipe...");
+			Recipe perfectGuacamole2 = new Recipe();
+			Notes perfectGuacamolesNotes2 = new Notes();
+			Ingredient ingredient7 = new Ingredient();
+			Ingredient ingredient8 = new Ingredient();
+			Ingredient ingredient9 = new Ingredient();
+
+			perfectGuacamole2.setCookTime(30);
+			perfectGuacamole2.setDescription("How to Make Perfect Guacamole Recipe 2");
+			perfectGuacamole2.setDifficulty(Difficulty.MODERATE);
+			perfectGuacamole2.setDirections(
+					"Be careful handling chiles if using. Wash your hands thoroughly after handling and do not touch"
+							+ " your eyes or the area near your eyes with your hands for several hours.");
+			perfectGuacamolesNotes2.setRecipe(perfectGuacamole2);
+			perfectGuacamolesNotes2
+					.setRecipeNotes("Cut the avocado, remove flesh: Cut the avocados in half. Remove the pit."
+							+ " Score the inside of the avocado with a blunt knife and scoop out the flesh with a spoon. (See How to Cut and Peel an Avocado.) Place in a bowl."
+							+ "Mash with a fork: Using a fork, roughly mash the avocado. (Don't overdo it! The guacamole should be a little chunky.)");
+			perfectGuacamole2.setNotes(perfectGuacamolesNotes2);
+
+			// perfectGuacamole2.setImage();
+
+			perfectGuacamole2.setPrepTime(20);
+			perfectGuacamole2.setServings(2);
+			perfectGuacamole2.setSource("simplyrecipes");
+			perfectGuacamole2.setUrl("https://www.simplyrecipes.com/recipes/perfect_guacamole/");
+
+			ingredient7.setAmount(new BigDecimal("1"));
+			ingredient7.setDescription("fresh lime juice or lemon juice");
+			ingredient7.setUnitOfMeasure(unitOfMeasureRepository.findByDescription("Tablespoon").get());
+			ingredient7.setRecipe(perfectGuacamole2);
+
+			ingredient8.setAmount(new BigDecimal("2"));
+			ingredient8.setDescription("minced red onion or thinly sliced green onion");
+			ingredient8.setUnitOfMeasure(unitOfMeasureRepository.findByDescription("Tablespoon").get());
+			ingredient8.setRecipe(perfectGuacamole2);
+
+			ingredient9.setAmount(new BigDecimal("1"));
+			ingredient9.setDescription("freshly grated black pepper");
+			ingredient9.setUnitOfMeasure(unitOfMeasureRepository.findByDescription("Dash").get());
+			ingredient9.setRecipe(perfectGuacamole2);
+
+			perfectGuacamole2.getIngredients().add(ingredient7);
+			perfectGuacamole2.getIngredients().add(ingredient8);
+			perfectGuacamole2.getIngredients().add(ingredient9);
+
+			perfectGuacamole2.getCategories().add(categoryRepository.findByDescription("American").get());
+			perfectGuacamole2.getCategories().add(categoryRepository.findByDescription("Italian").get());
+
+			recipesList.add(perfectGuacamole2);
+
+			recipeRepository.saveAll(recipesList);
+
+			System.out.println("Saved Recipe...");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 	}
 
